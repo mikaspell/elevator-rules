@@ -1,3 +1,11 @@
-<p>
-  rules works!
-</p>
+<mat-list>
+  <h3 class="mat-display-1">Правила</h3>
+  <mat-list-item *ngFor="let rule of rules">
+    <mat-checkbox
+      [value]="rule.name"
+      [(ngModel)]="result[rule.name]"
+    >
+      {{rule.title}}
+    </mat-checkbox>
+  </mat-list-item>
+</mat-list>
