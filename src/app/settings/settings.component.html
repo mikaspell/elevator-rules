@@ -1,0 +1,6 @@
+<mat-list>
+  <h3 class="mat-display-1">Параметры</h3>
+  <mat-list-item *ngFor="let option of options">
+      <input matInput [placeholder]="option.title" [(ngModel)]="result[option.name]">
+  </mat-list-item>
+</mat-list>
