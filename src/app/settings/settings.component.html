@@ -1,6 +1,14 @@
 <mat-list>
   <h3 class="mat-display-1">Параметры</h3>
   <mat-list-item *ngFor="let option of options">
+    <mat-form-field>
       <input matInput [placeholder]="option.title" [(ngModel)]="result[option.name]">
+      <span matPrefix>$&nbsp;</span>
+    </mat-form-field>
+  </mat-list-item>
+  <mat-list-item>
+    <button mat-mini-fab color="accent">
+      <mat-icon aria-label="add new passenger">face</mat-icon>
+    </button>
   </mat-list-item>
 </mat-list>

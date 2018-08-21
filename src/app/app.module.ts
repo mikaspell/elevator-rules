@@ -7,14 +7,22 @@ import { AppComponent } from './app.component';
 import { RulesComponent } from './rules/rules.component';
 import {SettingsComponent} from "./settings/settings.component";
 
-import {MatCheckboxModule, MatFormFieldModule, MatListModule} from "@angular/material";
+import {MatCheckboxModule, MatFormFieldModule, MatListModule, MatButtonModule, MatIconModule, MatInputModule} from "@angular/material";
 import {FormsModule} from "@angular/forms";
+import { ElevatorComponent } from './elevator/elevator.component';
+import { FloorComponent } from './floor/floor.component';
+import { PassangeerComponent } from './passangeer/passangeer.component';
+import { ProcessorComponent } from './processor/processor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RulesComponent,
-    SettingsComponent
+    SettingsComponent,
+    ElevatorComponent,
+    FloorComponent,
+    PassangeerComponent,
+    ProcessorComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +30,10 @@ import {FormsModule} from "@angular/forms";
     MatCheckboxModule,
     FormsModule,
     MatListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
