@@ -1,13 +1,15 @@
 <mat-list>
-  <h3 class="mat-display-1">Параметры</h3>
-  <mat-list-item *ngFor="let option of options">
+  <h3 class="mat-display-1" style="margin-bottom: 25px;">Параметры</h3>
+  <mat-list-item *ngFor="let option of options" style="margin-bottom: 1em">
     <mat-form-field>
       <input matInput [placeholder]="option.title" [(ngModel)]="result[option.name]">
-      <span matPrefix>$&nbsp;</span>
+      <mat-icon matPrefix *ngIf="option.name === 'liftsCount'">view_carousel</mat-icon>
+      <mat-icon matPrefix *ngIf="option.name === 'floorsCount'">view_agenda</mat-icon>
     </mat-form-field>
   </mat-list-item>
   <mat-list-item>
-    <button mat-mini-fab color="accent">
+    <button mat-raised-button color="accent">
+      <mat-icon style="font-size: 16px;line-height: 24px;">add</mat-icon>
       <mat-icon aria-label="add new passenger">face</mat-icon>
     </button>
   </mat-list-item>
