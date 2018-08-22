@@ -5,10 +5,30 @@
     </div>
   </div>
   <div class="row" style="margin-top: 70px">
-    <div class="col s9">left column</div>
+    <div class="col s9">
+      <div class="row">
+        <div class="col s10">
+          <app-processor></app-processor>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s2">
+          <div style="border-left: 3px solid rgba(0, 0, 0, 0.87); border-right: 3px solid rgba(0, 0, 0, 0.87); min-height: 159px; position: relative;">
+            <app-elevator></app-elevator>
+          </div>
+        </div>
+        <div class="col s8">
+          <app-floor></app-floor>
+          <app-floor></app-floor>
+          <app-floor></app-floor>
+        </div>
+      </div>
+    </div>
     <div class="col s3">
       <app-settings></app-settings>
       <br><br>
+      <mat-divider [inset]="true"></mat-divider>
+      <br>
       <app-rules></app-rules>
     </div>
   </div>
