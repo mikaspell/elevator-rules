@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FloorsService} from "./floors.service";
+import {Elevator, Floor} from "./types";
+import {ElevatorsService} from "./elevators.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  h1 = 'Elevator Rules'
+  h1 = 'Elevator Rules';
+  
+  public floors: Floor[] = [];
+  public elevators: Elevator[] = [];
+  
+  constructor(private floorsService: FloorsService, private elevatorsService: ElevatorsService) {}
+  
+  onElevatorsCountChanged(): void {
+    this.elevators = this.elevatorsService.elevators;
+  }
+
+  onFloorsChanged(): void {
+    this.floors = this.floorsService.floors;
+  }
 }
