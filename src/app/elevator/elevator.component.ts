@@ -1,14 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface Elevator {
-  id: number,
-  target: number,
-  weight: number,
-  maxWeight: number,
-  status: string,
-  direction: string,
-  position: number
-}
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-elevator',
@@ -16,11 +6,8 @@ export interface Elevator {
   styleUrls: ['./elevator.component.scss']
 })
 
-export class ElevatorComponent implements OnInit {
+export class ElevatorComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() {}
 
 }
