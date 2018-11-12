@@ -2,13 +2,13 @@
   <h3 class="mat-display-1" style="margin-bottom: 25px;">Параметры</h3>
   <mat-list-item *ngFor="let option of options" style="margin-bottom: 1em">
     <mat-form-field>
-      <input matInput [placeholder]="option.title" [(ngModel)]="result[option.name]">
+      <input matInput [placeholder]="option.title" [(ngModel)]="result[option.name]" (change)="router(option.name, result[option.name])">
       <mat-icon matPrefix *ngIf="option.name === 'liftsCount'">view_carousel</mat-icon>
       <mat-icon matPrefix *ngIf="option.name === 'floorsCount'">view_agenda</mat-icon>
     </mat-form-field>
   </mat-list-item>
   <mat-list-item>
-    <button mat-raised-button color="accent">
+    <button mat-raised-button color="accent" (click)="addPassenger()">
       <mat-icon style="font-size: 16px;line-height: 24px;">add</mat-icon>
       <mat-icon aria-label="add new passenger">face</mat-icon>
     </button>
