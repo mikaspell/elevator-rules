@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
+import {Rule} from '../types';
 
-export interface Rule {
-  name: string,
-  title: string,
-  isActive?: boolean
-}
 
 @Component({
   selector: 'app-rules',
