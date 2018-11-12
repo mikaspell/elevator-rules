@@ -13,6 +13,9 @@ import { ElevatorComponent } from './elevator/elevator.component';
 import { FloorComponent } from './floor/floor.component';
 import { PassangeerComponent } from './passangeer/passangeer.component';
 import { ProcessorComponent } from './processor/processor.component';
+import {PassengersService} from "./passengers.service";
+import {FloorsService} from "./floors.service";
+import {ElevatorsService} from "./elevators.service";
 
 @NgModule({
   declarations: [
@@ -35,7 +38,7 @@ import { ProcessorComponent } from './processor/processor.component';
     MatIconModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [PassengersService, FloorsService, ElevatorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
