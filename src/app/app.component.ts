@@ -17,10 +17,10 @@ export class AppComponent {
   constructor(private floorsService: FloorsService, private elevatorsService: ElevatorsService) {}
   
   onElevatorsCountChanged(): void {
-    this.elevators = this.elevatorsService.elevators;
+    this.elevators = this.elevatorsService.getElevators();
   }
 
   onFloorsChanged(): void {
-    this.floors = this.floorsService.floors;
+    this.floors = this.floorsService.getFloors();
   }
 }

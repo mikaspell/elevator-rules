@@ -5,7 +5,11 @@ import {Elevator} from "./types";
 
 export class ElevatorsService {
   
-  public elevators: Elevator[] = [];
+  private elevators: Elevator[] = [];
+  
+  getElevators(): Elevator[] {
+    return this.elevators;
+  }
   
   addElevator(): void {
     this.elevators.push({

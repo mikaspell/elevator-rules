@@ -5,7 +5,11 @@ import {Passenger} from "./types";
 
 export class PassengersService {
   
-  public passengers: Passenger[] = [];
+  private passengers: Passenger[] = [];
+  
+  getPassengers(): Passenger[] {
+    return this.passengers;
+  }
   
   addPassenger(): void {
     function numberGenerator(min:number, max:number): number{
@@ -13,8 +17,8 @@ export class PassengersService {
     }
     
     let passenger: Passenger = {
-      currentFloor: numberGenerator(1, 10),
-      targetFloor: numberGenerator(1, 10),
+      currentFloor: numberGenerator(1, 6),
+      targetFloor: numberGenerator(1, 6),
       weight: numberGenerator(20, 120)
     };
     

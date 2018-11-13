@@ -37,13 +37,13 @@ export class SettingsComponent implements OnInit{
     
     this.floorService.generatefloors(total);
     this.floorsChanged.emit(null);
-    console.log(this.floorService.floors);
+    console.log(this.floorService.getFloors());
   }
   
   addPassenger(): void {
     this.passengerService.addPassenger();
     
-    console.log(this.passengerService.passengers);
+    console.log(this.passengerService.getPassengers());
   }
   
   addElevator(total: string | number): void {
@@ -51,7 +51,7 @@ export class SettingsComponent implements OnInit{
     
     this.elevatorService.addElevator();
     this.elevatorAdded.emit(null);
-    console.log(this.elevatorService.elevators);
+    console.log(this.elevatorService.getElevators());
   }
   
   router(field: string, count: string) {

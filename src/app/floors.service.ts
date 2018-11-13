@@ -5,7 +5,11 @@ import {Floor} from "./types";
 
 export class FloorsService {
   
-  public floors: Floor[];
+  private floors: Floor[];
+  
+  getFloors(): Floor[] {
+    return this.floors;
+  }
   
   generatefloors(count:number): void {
     this.floors = new Array(count);
