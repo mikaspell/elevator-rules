@@ -54,12 +54,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {}
 
-  addPassenger(): void {
-    this.passengerService.addPassenger();
-
-    console.log(this.passengerService.getPassengers());
-  }
-
   ngOnDestroy() {
     this._subscriptions.unsubscribe();
   }

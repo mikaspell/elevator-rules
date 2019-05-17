@@ -1,31 +1,51 @@
-import {Injectable} from "@angular/core";
-import {Passenger} from "../types";
+import {Injectable} from '@angular/core';
+import {Passenger} from '../types';
+import {FloorsService} from './floors.service';
+import {BehaviorSubject, Observable} from 'rxjs';
+
+function numberGenerator(min: number, max: number, exception?: number): number {
+  let number = Math.floor(Math.random() * (max - min)) + min;
+
+  if (exception && number === exception) {
+    return numberGenerator(min, max, exception);
+  } else {
+    return number;
+  }
+}
 
 @Injectable()
 
 export class PassengersService {
-  
-  private passengers: Passenger[] = [];
-  
-  getPassengers(): Passenger[] {
-    return this.passengers;
-  }
-  
-  addPassenger(): void {
-    function numberGenerator(min:number, max:number): number{
-      return Math.floor(Math.random() * (max - min)) + min;
-    }
-    
+
+  private _passengers: BehaviorSubject<Passenger[]> = new BehaviorSubject<Passenger[]>([]);
+
+  constructor(
+    private flService: FloorsService
+  ) {}
+
+  get passengers(): Observable<Passenger[]> { return this._passengers.asObservable(); }
+  get logs() { return console.log(this._passengers.getValue()); }
+
+  add(): void {
+    let lastFloor = this.flService.floorsCount;
+    let currentFloor = numberGenerator(1, lastFloor + 1);
     let passenger: Passenger = {
-      currentFloor: numberGenerator(1, 6),
-      targetFloor: numberGenerator(1, 6),
+      currentFloor: currentFloor,
+      targetFloor: numberGenerator(1, lastFloor + 1, currentFloor),
       weight: numberGenerator(20, 120)
     };
-    
-    this.passengers.push(passenger);
+    let passengers = this._passengers.getValue();
+
+    passengers.push(passenger);
+    this._passengers.next(passengers);
+    this.logs;
   }
-  
-  deletePassenger(index:number): void {
-    delete this.passengers[index];
+
+  delete(index: number): void {
+    let passengers = this._passengers.getValue();
+    passengers.splice(index, 1);
+
+    this._passengers.next(passengers);
+    this.logs;
   }
 }
