@@ -1,26 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {FloorsService} from "./floors.service";
-import {Elevator, Floor} from "./types";
-import {ElevatorsService} from "./elevators.service";
+import {Component, OnDestroy} from '@angular/core';
+import {FloorsService} from './services/floors.service';
+import {Elevator, Floor} from './types';
+import {ElevatorsService} from './services/elevators.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   h1 = 'Elevator Rules';
-  
-  public floors: Floor[] = [];
-  public elevators: Elevator[] = [];
-  
-  constructor(private floorsService: FloorsService, private elevatorsService: ElevatorsService) {}
-  
-  onElevatorsCountChanged(): void {
-    this.elevators = this.elevatorsService.getElevators();
+
+  public floors: Floor[];
+  public elevators: Elevator[];
+
+  private _subscriptions: Subscription = new Subscription();
+
+  constructor(
+    private floorsService: FloorsService,
+    private elevatorsService: ElevatorsService
+  ) {
+    let floorsChanges = this.floorsService.floors.subscribe(floors => this.floors = [...floor]);
+    let elChanges = this.elevatorsService.elevators.subscribe(els => this.elevators = [...els]);
+    this._subscriptions.add(floorsChanges).add(elChanges);
   }
 
-  onFloorsChanged(): void {
-    this.floors = this.floorsService.getFloors();
+  ngOnDestroy() {
+    this._subscriptions.unsubscribe();
   }
 }
