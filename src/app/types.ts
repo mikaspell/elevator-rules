@@ -1,30 +1,33 @@
 export interface Elevator {
-  id: number,
-  target: number,
-  weight: number,
-  maxWeight: number,
-  status: string, // waiting, starting, moving, stopping
-  direction: string,
-  position: number
+  id: number;
+  target: number;
+  weight: number;
+  maxWeight: number;
+  status: Status;
+  direction: string;
+  position: number;
 }
 
 export interface Rule {
-  name: string,
-  title: string,
-  isActive?: boolean
+  name: string;
+  title: string;
+  isActive?: boolean;
 }
 
 export interface Option {
-  name: string,
-  title: string
+  name: string;
+  title: string;
+  options: number[];
 }
 
 export interface Passenger {
-  currentFloor: number,
-  targetFloor: number,
-  weight: number
+  currentFloor: number;
+  targetFloor: number;
+  weight: number;
 }
 
 export interface Floor {
-  title: number
+  title: number;
 }
+
+export type Status = 'waiting' | 'starting' | 'moving';
