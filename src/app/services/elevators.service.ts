@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Elevator} from './types';
+import {Elevator} from '../types';
 import {BehaviorSubject} from 'rxjs';
 
 @Injectable()

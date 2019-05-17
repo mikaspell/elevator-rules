@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Floor} from "./types";
+import {Floor} from "../types";
 
 @Injectable()
 

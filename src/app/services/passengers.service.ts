@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Passenger} from "./types";
+import {Passenger} from "../types";
 
 @Injectable()
 
