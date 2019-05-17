@@ -14,7 +14,7 @@ export class RulesComponent  {
     distance: true
   };
 
-  rules:Rule[] = [
+  rules: Rule[] = [
     {
       name: 'weight',
       title: 'Учитывать вес пассажиров'
@@ -26,7 +26,11 @@ export class RulesComponent  {
     {
       name: 'distance',
       title: 'Учитывать расстояние до необходимого этажа'
+    },
+    {
+      name: 'time',
+      title: 'Учитывать период дня'
     }
-  ]
+  ];
 
 }
