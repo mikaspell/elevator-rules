@@ -21,7 +21,7 @@ export class AppComponent implements OnDestroy {
     private floorsService: FloorsService,
     private elevatorsService: ElevatorsService
   ) {
-    let floorsChanges = this.floorsService.floors.subscribe(floors => this.floors = [...floor]);
+    let floorsChanges = this.floorsService.floors.subscribe(floors => this.floors = [...floors]);
     let elChanges = this.elevatorsService.elevators.subscribe(els => this.elevators = [...els]);
     this._subscriptions.add(floorsChanges).add(elChanges);
   }
